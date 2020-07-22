@@ -4,3 +4,16 @@
     margin: 0 auto;
     text-align: left;
 }
+
+img { 
+    margin: 5px; 
+    width: 250px;
+}
+
+.movieField {
+    font-weight: 11;
+}
+
+.movieImage {
+    border: 0;
+}

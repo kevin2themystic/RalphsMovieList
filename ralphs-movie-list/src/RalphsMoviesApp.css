@@ -14,6 +14,26 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.App-footer {
+  background-color: #282c34;
+  height: 125px;
+  min-height: 125px;
+  max-height: 125px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.blurb {
+  padding: 5px;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+  color: gray;
+  margin: 0 auto;
+}
 
 .content {
   align-content: center;

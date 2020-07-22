@@ -1,5 +1,16 @@
 {   
+    "Images": {
+        "ImageUnavailable": "images/image-unavailable.png" 
+    },
     "IMDB": {
-        "APIKey": "k_5Z6fXUPS"
-    } 
+        "APIKey": "k_5Z6fXUPS",
+        "APIs": {
+            "SearchMovie": "https://imdb-api.com/en/API/SearchMovie/"
+        },
+        "MovieTitleUrl": "https://www.imdb.com/title/"
+    },
+    "ErrorMessages": {
+        "MaximumUsageError": "Maximum usage",
+        "MaximumUsageExceeded": "Sorry, I have exceeded my conversations with IMDB today. You can see the movies but not the real images or links."
+    }
 }
