@@ -38,3 +38,44 @@
 .content {
   align-content: center;
 }
+
+footer {
+  padding: 20px;
+}
+
+.tech-image {
+  width: 50px;
+}
+
+.movieComponent {
+  padding: 20px;
+  width: 60%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.movieField {
+  font-weight: 11;
+}
+
+.movieImage {
+  margin: 5px; 
+  width: 250px;
+  border: 0;
+}
+
+.errorMessage {
+  color: red;
+}
+
+.component {
+  padding: 5px;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.sortMenu {
+  padding: 5px;
+}

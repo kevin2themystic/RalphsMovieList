@@ -1,40 +1,87 @@
+// React
 import React from 'react';
-import movieData from "./data/movies.json";
+import { Component } from "react";
+import { Switch, NavLink, Route, BrowserRouter as Router } from "react-router-dom";
+
+// 3rd party libraries
+import Container from "@material-ui/core/Container";
+
+// Custom Components
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import MoviesList from "./components/MoviesList";
-import MovieModel from "./models/MovieModel";
+// import MovieModel from "./models/MovieModel";
+import AboutRalph from './components/AboutRalph';
+import AboutRalphsMovieList from './components/AboutRalphsMovieList'; 
+
+//CSS
 import './RalphsMoviesApp.css';
 
-function RalphsMoviesApp() {  
-  return (
-    <div className="App">
-      <header className="App-header">
-        Ralph's Movie List
-      </header>
-      <div className="content">
-        <div className="blurb">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-          laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-          voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
-          non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-        <MoviesList Movies={movieData as MovieModel[]} />        
+export default class RalphsMoviesApp extends Component {
+  
+  render () {
+    return (
+      <div className="App">
+        <Container fixed>
+          <Header />  
+          <Router>
+            <div className="menu">
+              <div className="links">
+                  <NavLink to="/movies" className="menu-link btn">Movies</NavLink>
+                  <NavLink to="/about-ralph" className="menu-link btn">About Ralph</NavLink>
+                  <NavLink to="/about-ralphs-movie-list" className="menu-link btn">About This Site</NavLink>
+              </div>
+              <div className="scroll">
+                <Switch>
+                    <Route exact path="/" component={ MoviesList }/>
+                    <Route exact path="/movies" component={ MoviesList }/>
+                    <Route exact path="/about-ralph" component={ AboutRalph }/>
+                    <Route exact path="/about-ralphs-movie-list" component={ AboutRalphsMovieList }/>  
+                    <Route exact path="/about-this-site" component={ AboutRalphsMovieList }/>            
+                    <Route exact render={ () => <div className="component">No content found.</div> }/>
+                </Switch>              
+              </div>          
+            </div>
+          </Router>
+          <Footer />
+        </Container>
       </div>
-      <footer className="App-footer">
-        <div className="row">
-          <div className="col-md-4">
-            1st Column
-          </div>
-          <div className="col-md-4">
-            2nd Column
-          </div>
-          <div className="col-md-4">
-            3rd Column
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-}
+    );  
+  }  
+  handleMenuOpenClick = (event: any) => {
+    this.setState({
+      anchorEl: event.currentTarget,
+      isMenuOpen: true
+    });
+  };
 
-export default RalphsMoviesApp;
+  handleAboutRalphsMovieListClick = (event: any) => {
+    this.setState({
+      isMenuOpen: false,
+      showAboutRalphsMovies: true,
+      showAboutRalph: false,
+      showMovies: false,
+    });
+  };
+  handleAboutRalphClick = (event: any) => {
+    this.setState({
+      isMenuOpen: false,
+      showAboutRalphsMovies: false,
+      showAboutRalph: true,
+      showMovies: false,
+    });
+  };
+  handleViewAllMoviesClick = (event: any) => {
+    this.setState({
+      isMenuOpen: false,
+      showAboutRalphsMovies: false,
+      showAboutRalph: false,
+      showMovies: true,
+    });
+  };
+  handleMenuClose = (event: any) => {
+    this.setState({
+      anchorEl: {} as Element
+    });
+  };
+}

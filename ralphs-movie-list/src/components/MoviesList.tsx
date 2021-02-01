@@ -16,17 +16,19 @@ import Movie from "./Movie";
 import MovieModel from "../models/MovieModel";
 import { IMDBMovie } from "../models/IMDBMoviewResults";
 
+
+// Data
+import movieData from "../data/movies.json";
+
 // constants
 import constants from "../constants.json";
-
-// CSS
-import "./MoviesList.css";
 
 interface MoviesListProps {
     Movies: MovieModel[]
 }
 
 interface MoviesListState {
+    allMoviesCount: number;
     Movies: MovieModel[];
     imdbMaxUsageExceeded: boolean;
     userErrorMessage: string;
@@ -37,6 +39,7 @@ export default class MoviesList extends Component<MoviesListProps, MoviesListSta
     constructor(props: MoviesListProps) {
         super(props);
         this.state = {
+            allMoviesCount: 0,
             imdbMaxUsageExceeded: false,
             Movies: [],
             userErrorMessage: "",
@@ -51,35 +54,11 @@ export default class MoviesList extends Component<MoviesListProps, MoviesListSta
         return (
             <div className="component">
                 <hr />
-                <div>Total Movies:  {this.state.Movies.length}</div>
+                <div>Viewing {this.state.Movies.length} of {this.state.allMoviesCount} Total Movies: </div>
                 {this.state && this.state.userErrorMessage !== "" &&
                     <div className="errorMessage">{this.state.userErrorMessage}</div>                
                 }     
-                <hr />  
-                <div className="row sortMenu">
-                    <div className="col-md-4">
-                        <button className="btn btn-primary">View All Movies in Watched Order</button>
-                    </div>
-                    <div className="col-md-4">
-                        <InputLabel id="demo-simple-select-helper-label">View All Movies In Year</InputLabel>
-                        <Select
-                            labelId="demo-simple-select-helper-label"
-                            id="demo-simple-select-helper"
-                            value={0}
-                            onChange={ (e) => this.handleYearChange(e) }
-                        >
-                            <MenuItem value="0">
-                                <em>All</em>
-                            </MenuItem>
-                            <MenuItem value={10}>Ten</MenuItem>
-                            <MenuItem value={20}>Twenty</MenuItem>
-                            <MenuItem value={30}>Thirty</MenuItem>
-                        </Select>
-                    </div>
-                    <div className="col-md-4">
-                        <button className="btn btn-primary">View All Movies in Alphabetical Order</button>
-                    </div>
-                </div>         
+                <hr />           
                 {this.state && this.state.Movies && this.state.Movies.length > 0 && this.state.Movies.sort((a, b) => a.number > b.number ? 1 : -1).map((m, idx) => 
                     <Movie key={idx} MovieModel={m} />
                 )}
