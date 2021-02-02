@@ -4,7 +4,7 @@ import { Component } from "react";
 export default class AboutRalphsMovieList extends Component {
     render () {
         return (
-            <div className="aboutRalphComponent">  
+            <div className="component">  
                 <h1>About Ralph's Movies List</h1> 
                 <div className="row">
                     <div className="col-md-12">

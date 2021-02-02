@@ -14,6 +14,9 @@ import MoviesList from "./components/MoviesList";
 import AboutRalph from './components/AboutRalph';
 import AboutRalphsMovieList from './components/AboutRalphsMovieList'; 
 
+// Data
+import movieData from "./data/movies.json";
+
 //CSS
 import './RalphsMoviesApp.css';
 
@@ -21,7 +24,7 @@ export default class RalphsMoviesApp extends Component {
   
   render () {
     return (
-      <div className="App">
+      <div className="app">
         <Container fixed>
           <Header />  
           <Router>
@@ -33,9 +36,9 @@ export default class RalphsMoviesApp extends Component {
               </div>
               <div className="scroll">
                 <Switch>
-                    <Route exact path="/" component={ MoviesList }/>
-                    <Route exact path="/movies" component={ MoviesList }/>
+                    <Route exact path="/" component={ AboutRalph }/>
                     <Route exact path="/about-ralph" component={ AboutRalph }/>
+                    <Route exact path="/movies" component={ () => <MoviesList Movies={movieData} /> }/>
                     <Route exact path="/about-ralphs-movie-list" component={ AboutRalphsMovieList }/>  
                     <Route exact path="/about-this-site" component={ AboutRalphsMovieList }/>            
                     <Route exact render={ () => <div className="component">No content found.</div> }/>

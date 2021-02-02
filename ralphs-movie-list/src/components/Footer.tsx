@@ -4,14 +4,10 @@ import { Component } from "react";
 export default class Footer extends Component {
     render () {
         return (
-            <div className="aboutRalphComponent">  
-            <footer>
-              <div className="row">
-                <div className="col-md-12">
-                  &copy; 2020 Kevin Parkinson - Peak Self Living Inc.
-                </div>
-              </div>
-            </footer>          
+            <div className="component footer-component">
+              <footer className="copywrite">
+                  © {new Date().getFullYear()} Kevin Parkinson | Peak Self Living Inc.
+              </footer>
             </div>
         );
     } 

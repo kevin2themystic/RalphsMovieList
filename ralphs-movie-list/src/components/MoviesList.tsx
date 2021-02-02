@@ -16,10 +16,6 @@ import Movie from "./Movie";
 import MovieModel from "../models/MovieModel";
 import { IMDBMovie } from "../models/IMDBMoviewResults";
 
-
-// Data
-import movieData from "../data/movies.json";
-
 // constants
 import constants from "../constants.json";
 
@@ -56,7 +52,7 @@ export default class MoviesList extends Component<MoviesListProps, MoviesListSta
                 <hr />
                 <div>Viewing {this.state.Movies.length} of {this.state.allMoviesCount} Total Movies: </div>
                 {this.state && this.state.userErrorMessage !== "" &&
-                    <div className="errorMessage">{this.state.userErrorMessage}</div>                
+                    <div className="error-message">{this.state.userErrorMessage}</div>                
                 }     
                 <hr />           
                 {this.state && this.state.Movies && this.state.Movies.length > 0 && this.state.Movies.sort((a, b) => a.number > b.number ? 1 : -1).map((m, idx) => 
