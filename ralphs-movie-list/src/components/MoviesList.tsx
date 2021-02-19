@@ -50,7 +50,7 @@ export default class MoviesList extends Component<MoviesListProps, MoviesListSta
         return (
             <div className="component">
                 <hr />
-                <div>Viewing {this.state.Movies.length} of {this.state.allMoviesCount} Total Movies: </div>
+                <div>Viewing {this.state.Movies.length} of {this.state.allMoviesCount} Total Movies</div>
                 {this.state && this.state.userErrorMessage !== "" &&
                     <div className="error-message">{this.state.userErrorMessage}</div>                
                 }     
