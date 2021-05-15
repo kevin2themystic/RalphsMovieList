@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import RalphsMoviesApp from './RalphsMoviesApp';
+import RalphsMoviesList from './ralphsMovieList';
 
 test('renders learn react link', () => {
-  const { getByText } = render(<RalphsMoviesApp />);
+  const { getByText } = render(<RalphsMoviesList />);
 });

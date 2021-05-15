@@ -1,20 +1,50 @@
 import React from "react";
 import { Component } from "react";
-import MovieModel from "../models/MovieModel";
+import ralphsMovies from "../services/dataService";
+import getIntVarFromPathName from "../utils/uriUtils";
 
-interface MovieProps {
-    MovieModel: MovieModel
+
+interface MovieDetailState {
+    movieNumber: number;
+    movieName: string;
+    movieDate: string;
+    movieDist: string;
+    movieNotes: string;
 }
-interface MovieState {
 
-}
+class MovieDetail extends Component<{}, MovieDetailState> {
 
-export default class Movie extends Component<MovieProps, MovieState> {
+    constructor(props: {})
+    {
+        super(props); 
+        this.state = {
+            movieNumber: 0,
+            movieName: "",
+            movieDate: "",
+            movieDist: "",
+            movieNotes: ""
+        }       
+    }
+
+    componentDidMount() {
+        let movieNumber = getIntVarFromPathName("/movies/");
+        let movie = ralphsMovies.find(movie => movie.number = movieNumber);
+        if(movie) {
+            this.setState({
+                movieNumber: movieNumber,
+                movieName: movie.name,
+                movieDate: movie.date,
+                movieDist: movie.distributor ?? "",
+                movieNotes: movie.otherNotes ?? ""
+            });            
+        }
+    }
+
     render () {
-        let movie = this.props.MovieModel;
         return (
-            <div className="movie-component">  
-                <div className="row">
+            <div className="movie-detail-component ">  
+                <h3>{this.state.movieName}</h3>
+                {/* <div className="row">
                     <div className="col-md-4">
                         {movie.imdbUrl !== "" &&
                             <a href={movie.imdbUrl} target="_blank" rel="noopener noreferrer">
@@ -34,8 +64,10 @@ export default class Movie extends Component<MovieProps, MovieState> {
                             </div>                         
                         }                  
                     </div>  
-                </div>            
+                </div>             */}
             </div>
         );
     } 
 }
+
+export default MovieDetail;

@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Movie from "./Movie";
+import Movie from "./ralphMovie";
 
 test("renders movie component", () => {
   const { getByText } = render(<Movie MovieModel={
@@ -11,11 +11,9 @@ test("renders movie component", () => {
       watchDay: "test", 
       watchMonth: "test", 
       watchYear: "test", 
-      imdbUrl: "test", 
-      thumbnail: "test", 
-      summary: "test", 
-      releaseYear: "test",
-      id: "test"
+      distributor: "test",
+      otherNotes: "test",
+      imdbLookupID: "test"
     }
   } />);
 });

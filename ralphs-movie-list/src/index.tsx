@@ -1,13 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import RalphsMoviesApp from "./RalphsMoviesApp";
+import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>
-    <RalphsMoviesApp />
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
