@@ -1,0 +1,33 @@
+{
+  "name": "ralphs-movie-list-backend",
+  "version": "1.0.0",
+  "description": "Express, Node and MongoDB components of Ralph's Movie List App",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevin2themystic/RalphsMovieList.git"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "mongodb",
+    "movies",
+    "imdb"
+  ],
+  "author": "Kevin Parkinson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevin2themystic/RalphsMovieList/issues"
+  },
+  "homepage": "https://github.com/kevin2themystic/RalphsMovieList#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "mongoose": "^5.13.5",
+    "nodemon": "^2.0.12",
+    "winston": "^3.3.3"
+  }
+}
