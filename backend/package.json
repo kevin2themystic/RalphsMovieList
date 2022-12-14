@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/kevin2themystic/RalphsMovieList#readme",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-async-errors": "^3.1.1",
     "mongoose": "^5.13.5",
     "nodemon": "^2.0.12",
